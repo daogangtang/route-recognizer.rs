@@ -58,7 +58,7 @@ impl Eq for Metadata {}
 
 #[derive(PartialEq, Clone, Show)]
 pub struct Params {
-    map: BTreeMap<String, String>
+    pub map: BTreeMap<String, String>
 }
 
 impl Params {
@@ -73,6 +73,7 @@ impl Params {
     pub fn find<'a>(&'a self, key: &str) -> Option<&'a str> {
         self.map.get(key).map(|s| s.as_slice())
     }
+    
 }
 
 impl Index<&'static str> for Params {
